@@ -9,7 +9,7 @@ class Account extends Component {
     }
   }
   handleDepositClick(e) {
-    e.preventdefault();
+    e.preventDefault();
     const amount = parseInt(this.inputBox.value);
     const newBalance = this.state.balance + amount;
     this.setState({balance: newBalance})
