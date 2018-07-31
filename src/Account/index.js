@@ -2,12 +2,10 @@ import React, { Component } from 'react';
 // why does this index not need to import app.js?
 
 class Account extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
+    state = {
       balance: 0 
     }
-    handleDepositClick(e) {
+    handleDepositClick = (e) => {
     e.preventDefault();
     const amount = parseInt(this.inputBox.value);
     const newBalance = this.state.balance + amount;
@@ -16,7 +14,7 @@ class Account extends Component {
     })
     this.inputBox.value = "";
   }
-    handleWithdrawClick(e) {
+    handleWithdrawClick = (e) => {
     e.preventDefault();
     const amount = parseInt(this.inputBox.value);
     const newBalance = this.state.balance - amount;
@@ -25,21 +23,22 @@ class Account extends Component {
     })
     this.inputBox.value = "";
   }
-  }
+  
   render() {
-    const balanceClass = 'balance';
     if (this.state.balance === 0){
-      balanceClass =+ ' zero';
+      this.balanceClass = 'zero';
+    } else {
+      this.balanceClass = 'balance';
     }
     return (
       <div className="account">
         <h2>TODO: {this.props.name}</h2>
-        <div className={balanceClass}>$0</div>
+        <div className={this.balanceClass}>${this.state.balance}</div>
         <input type="text" placeholder="enter an amount" ref={(input) => this.inputBox = input} />
         <input type="button" value="Deposit" onClick={this.handleDepositClick} />
         <input type="button" value="Withdraw" onClick={this.handleWithdrawClick} />
       </div>
-    )
+      )
   }
 
 }
