@@ -10,10 +10,11 @@ class Account extends Component {
     }
   }
   render() {
+    const balanceDiv = (this.state.balance > 0) ? <div className="balance">${ this.state.balance }</div> : <div className="balance zero">${ this.state.balance }</div>;
     return (
       <div className="account">
         <h2>{ this.props.name }</h2>
-        <div className="balance">${ this.state.balance }</div>
+        { balanceDiv }
             <input type="text" placeholder="enter an amount" ref={(input) => {
               this.inputBox = input
             }} />
@@ -24,7 +25,7 @@ class Account extends Component {
             }} />
             <input type="button" value="Withdraw" onClick={() => {
               this.setState({
-              balance: (this.inputBox.value < this.state.balance) ? parseInt(this.state.balance) - parseInt(this.inputBox.value) : this.state.balance,
+              balance: (this.inputBox.value <= this.state.balance) ? parseInt(this.state.balance) - parseInt(this.inputBox.value) : this.state.balance,
               })
 
             }} />
