@@ -13,13 +13,15 @@ class Account extends Component {
       <div className="account">
         <h2>{ this.props.name }</h2>
         <div className="balance">$0</div>
-        <input type="text" placeholder="enter an amount" id="text-input" ref={()=>{
-          document.getElementById('text-input').value;
-        }} />
-        <input type="button" value="Deposit" onClick={()=>{
-          console.log(this.state.balance + ref)
-        }} />
-        <input type="button" value="Withdraw" />
+            <input type="text" placeholder="enter an amount" ref={(input) => {
+              this.inputBox = input
+            }} />
+            <input type="button" value="Deposit" onClick={() => {
+              console.log(this.inputBox.value)
+            }} />
+            <input type="button" value="Withdraw" onClick={() => {
+              console.log(this.inputBox.value)
+            }} />
       </div>
     )
   }
