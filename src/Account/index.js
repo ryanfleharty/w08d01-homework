@@ -6,6 +6,7 @@ class Account extends Component {
     super(props);
     this.state = {
       balance: 0,
+      error: "ok"
     }
   }
   render() {
@@ -20,12 +21,12 @@ class Account extends Component {
               this.setState({
                 balance: parseInt(this.state.balance) + parseInt(this.inputBox.value)
               })
-              console.log(this.state.balance)
-              console.log(this.inputBox.value)
-
             }} />
             <input type="button" value="Withdraw" onClick={() => {
-              console.log(this.inputBox.value)
+              this.setState({
+              balance: (this.inputBox.value < this.state.balance) ? parseInt(this.state.balance) - parseInt(this.inputBox.value) : this.state.balance,
+              })
+
             }} />
       </div>
     )
