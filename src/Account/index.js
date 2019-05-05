@@ -5,8 +5,8 @@ class Account extends Component {
   render() {
     return (
       <div className="account">
-        <h2>TODO: CHANGE TO PROP</h2>
-        <div className="balance">$0</div>
+        <h2>{this.props.name}</h2>
+        <div className="balance">{this.state.balance}</div>
         <input type="text" placeholder="enter an amount" />
         <input type="button" value="Deposit" />
         <input type="button" value="Withdraw" />
