@@ -24,17 +24,20 @@ class Account extends Component {
     )
   };
   handleDepositClick = (e)=> {
+    if(this.textInput.value != ""){
     e.preventDefault();
-    const addedInput = parseInt(this.textInput.value, 16)
+    const addedInput = parseInt(this.textInput.value)
     const newBalance = this.state.balance + addedInput;
     this.setState({
       balance:newBalance,
     })
+  }
     this.textInput.value = ""
   }
   handleWithdrawClick = (e) => {
+    if (this.textInput.value != "") {
     e.preventDefault();
-    const addedInput = parseInt(this.textInput.value, 16)
+    const addedInput = parseInt(this.textInput.value)
     const newBalance = this.state.balance - addedInput;
     if (Math.sign(newBalance) !== -1 || -0){
       this.setState({
@@ -46,6 +49,7 @@ class Account extends Component {
       })
 
     }
+  }
     this.textInput.value = ""
   }
 }
