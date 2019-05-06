@@ -46,9 +46,13 @@ class Account extends Component {
   } else {
       newBalance = this.state.balance;
   }
-  }
+  
+   this.setState({
+     balance: newBalance
+   })
+this.inputBox.value = '';
 }
-
+}
 
 
 export default Account;
