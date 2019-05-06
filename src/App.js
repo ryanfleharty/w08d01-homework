@@ -8,10 +8,10 @@ class App extends Component {
       <div id="content">
         <div id="nav">
           <div id="logo"><img src={logo} alt="General Assembly logo" /></div>
-          <div id="title">Bank of GA</div>
+          <div id="title">For Saving of the Monies!</div>
         </div>
-        <Account />
-        <Account />
+        <Account name="Checking"/>
+        <Account name="Savings"/>
         <div className="clear"></div>
       </div>
     );
