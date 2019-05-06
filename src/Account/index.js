@@ -40,8 +40,8 @@ class Account extends Component {
     const amount = parseInt(this.inputBox.value);
 
     const newBalance = this.state.balance - amount;
-    if (balance < 0){
-      balance = 0;
+    if (this.state.balance < 0){
+      this.state.balance = 0;
     }
 
     this.setState({
