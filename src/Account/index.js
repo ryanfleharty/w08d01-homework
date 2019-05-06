@@ -16,7 +16,7 @@ class Account extends Component {
     return (
       <div className="account">
         <h2>{this.props.name}</h2>
-        <div className={balanceClass}> >{this.state.balance}</div>
+        <div className={balanceClass}>{this.state.balance}</div>
         <input type="number" placeholder="enter an amount" ref={(input) => this.inputBox = input} />
         <input type="button" value="Deposit" onClick={this.handleDepositClick} />
         <input type="button" value="Withdraw" onClick={this.handleWithdrawClick} />
