@@ -30,16 +30,24 @@ class Account extends Component {
     this.setState({
       balance:newBalance,
     })
+    this.textInput.value = ""
   }
   handleWithdrawClick = (e) => {
     e.preventDefault();
     const addedInput = parseInt(this.textInput.value, 16)
     const newBalance = this.state.balance - addedInput;
-    this.setState({
-      balance: newBalance,
-    })
+    if (Math.sign(newBalance) !== -1 || -0){
+      this.setState({
+        balance: newBalance,
+      })
+    }else{
+      this.setState({
+        balance:0,
+      })
+
+    }
+    this.textInput.value = ""
   }
-  
 }
 
 export default Account;
