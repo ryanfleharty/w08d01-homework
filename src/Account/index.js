@@ -35,17 +35,20 @@ class Account extends Component {
 
   // What is seven trying to do, exactly?
 
-  // const balanceClass = 'balance';
-  // if (this.state.balance === 0) {
-  //   balanceClass += ' zero';
-  // };
   
 
   render() {
+
+  let balanceClass = 'balance';
+  if (this.state.balance === 0) {
+    balanceClass += ' zero';
+  };
+
     return (
+      
       <div className="account">
         <h2>{this.props.name}</h2>
-        <div className="balance">${this.state.balance}</div>
+        <div className="balanceClass">${this.state.balance}</div>
         <input type="text" placeholder="enter an amount" ref={(input) => {
           this.inputBox = input
         }}/>
