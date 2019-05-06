@@ -39,15 +39,13 @@ class Account extends Component {
   handleWithdrawClick = (e) => {
     const amount = parseInt(this.inputBox.value);
 
-    const newBalance = this.state.balance - amount;
-    if (this.state.balance < 0){
-      this.state.balance = 0;
-    }
+  let newBalance = 0;
 
-    this.setState({
-      balance: newBalance
-    });
-    this.inputBox.value = '';
+    if (this.state.balance - amount >= 0) {
+      newBalance = this.state.balance - amount;
+  } else {
+      newBalance = this.state.balance;
+  }
   }
 }
 
