@@ -20,15 +20,33 @@ class Account extends Component {
     })
     this.inputBox.value = '';
   }
+
+
+
   withdrawalClick = (e) => {
     e.preventDefault();
     const amount = parseInt(this.inputBox.value);
-    const newBalance = this.state.balance - amount;
-    this.setState({
-      balance: newBalance
-    })
-    this.inputBox.value = '';
-  }
+    let newBalance = 0;
+      if (this.state.balance - amount >= 0) {
+          newBalance = this.state.balance - amount;
+      } else {
+          newBalance = this.state.balance;
+      }
+      this.setState({
+        balance: newBalance
+      })
+  this.inputBox.value = '';
+
+
+  // withdrawalClick = (e) => {
+  //   e.preventDefault();
+  //   const amount = parseInt(this.inputBox.value);
+  //   const newBalance = this.state.balance - amount;
+  //   this.setState({
+  //     balance: newBalance
+  //   })
+  //   this.inputBox.value = '';
+   }
   render() {
     let balanceClass = 'balance';
     if (this.state.balance === 0) {
