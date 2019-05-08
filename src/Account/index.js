@@ -11,6 +11,10 @@ class Account extends Component {
 
 
   handleDepositClick = (e) => {
+    if (!this.inputBox.value) {
+      this.inputBox.value = 0;
+    }
+
     console.log('handle deposit is being clicked')
     // It is good practice to still prevent default behavior
     e.preventDefault();
@@ -24,26 +28,36 @@ class Account extends Component {
     })
     // empty out the text box in this component
     this.inputBox.value = '';
+  
   }
+
+
+
+
 
   handleWithdrawClick = (e) => {
     console.log('handle withdraw is being clicked')
 
     e.preventDefault();
     let amount = parseInt(this.inputBox.value);
+    if( amount <= this.state.balance){
     const newBalance = this.state.balance - amount;
+    console.log(newBalance);
     this.setState({
       balance: newBalance
     })
     this.inputBox.value = '';
-  }
+    }
 
+  }
 
   render() {
   let balanceClass = 'balance';
   if (this.state.balance === 0) {
     balanceClass += ' zero';
   }
+  console.log(this.state);
+  
     return (
       <div className="account">
       <h2>{this.props.name}</h2>
@@ -55,5 +69,6 @@ class Account extends Component {
     )
   }
 }
+
 
 export default Account;
