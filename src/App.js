@@ -9,9 +9,12 @@ class App extends Component {
         <div id="nav">
           <div id="logo"><img src={logo} alt="General Assembly logo" /></div>
           <div id="title">Bank of GA</div>
+   
         </div>
-        <Account />
-        <Account />
+        <div>
+        <Account name="checking" />
+        <Account name="Savings"/>
+        </div>
         <div className="clear"></div>
       </div>
     );
